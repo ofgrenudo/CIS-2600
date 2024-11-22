@@ -36,7 +36,6 @@ public class Package {
     private double weight;
     private WeightClass weight_class;
     private ShippingMethod shipping_method;
-    private double shipping_cost;
     private double cost;
     
     /* ======================== Assign Package Costs =========================*/
@@ -70,14 +69,12 @@ public class Package {
     public void setCustomerName(String customer_name) { this.customer_name = customer_name; }
     public void setWeight(double weight) { this.weight = weight; setWeightClass(weight); }
     public void setShippingMethod(ShippingMethod shipping_method) { this.shipping_method = shipping_method; }
-//    public void setShippingCost(double shipping_cost) { this.shipping_cost = shipping_cost; }
     public void setCost(double cost) { this.cost = cost; }
 
     public String getCustomerName() { return customer_name; }
     public double getWeight() { return weight; }
     public WeightClass getWeightClass() { return weight_class;}
     public ShippingMethod getShippingMethod() { return shipping_method; }
-//    public double getShippingCost() { return shipping_cost; }   
     public double getCost() { return cost; }
     
     /* ============================== Helpers ================================*/
