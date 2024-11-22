@@ -18,14 +18,14 @@ package lab4_jmb8687;
 */
 public class InsuredPackage extends Package {
 
-    private double insured_package_cost;
 
     /* ============================ Constructors =============================*/    
-    public InsuredPackage () { ; }
+    public InsuredPackage () { super.INSURED = true; }
     
     public InsuredPackage (double weight, ShippingMethod shipping_method) { 
         super.setWeight(weight);
         super.setShippingMethod(shipping_method);
+        super.INSURED = true;
     }
     
     /* ============================== Helpers ================================*/
