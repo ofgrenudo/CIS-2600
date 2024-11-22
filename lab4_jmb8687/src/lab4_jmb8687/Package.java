@@ -70,14 +70,14 @@ public class Package {
     public void setCustomerName(String customer_name) { this.customer_name = customer_name; }
     public void setWeight(double weight) { this.weight = weight; setWeightClass(weight); }
     public void setShippingMethod(ShippingMethod shipping_method) { this.shipping_method = shipping_method; }
-    public void setShippingCost(double shipping_cost) { this.shipping_cost = shipping_cost; }
+//    public void setShippingCost(double shipping_cost) { this.shipping_cost = shipping_cost; }
     public void setCost(double cost) { this.cost = cost; }
 
     public String getCustomerName() { return customer_name; }
     public double getWeight() { return weight; }
     public WeightClass getWeightClass() { return weight_class;}
     public ShippingMethod getShippingMethod() { return shipping_method; }
-    public double getShippingCost() { return shipping_cost; }   
+//    public double getShippingCost() { return shipping_cost; }   
     public double getCost() { return cost; }
     
     /* ============================== Helpers ================================*/
@@ -140,7 +140,15 @@ public class Package {
     }
     
     public void display() {
-        ;
+        calculateCost();
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("\t\tU-SHIP");
+        System.out.println("\nReciept for -> " + getCustomerName());
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+        System.out.println("Package Weight -> " + getWeight() + " (oz)");
+        System.out.println("Shipping Method -> " + getShippingMethod());
+        System.out.println("Shipping Cost -> " + getCost());
+        System.out.println("\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
     }
     
     /* ============================== Tester  ================================*/
@@ -148,7 +156,7 @@ public class Package {
         Package testSmallPackage = new Package(5.0, ShippingMethod.AIR);
         Package testMediuPackage = new Package(15.0, ShippingMethod.AIR);
         Package testLargePackage = new Package(20.0, ShippingMethod.AIR);
-        
+    
         System.out.println("Input Weight : " + testSmallPackage.getWeight() + "  | Should be SMALL class.  | Reports as : " + testSmallPackage.getWeightClass());
         System.out.println("Input Weight : " + testMediuPackage.getWeight() + " | Should be MEDIUM class. | Reports as : " + testMediuPackage.getWeightClass());
         System.out.println("Input Weight : " + testLargePackage.getWeight() + " | Should be LARGE class.  | Reports as : " + testLargePackage.getWeightClass());
