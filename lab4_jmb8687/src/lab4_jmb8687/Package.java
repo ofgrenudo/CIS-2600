@@ -78,7 +78,7 @@ public class Package {
     public WeightClass getWeightClass() { return weight_class;}
     public ShippingMethod getShippingMethod() { return shipping_method; }
     public double getShippingCost() { return shipping_cost; }   
-    public double getCost() { calculateCost(); return cost; }
+    public double getCost() { return cost; }
     
     /* ============================== Helpers ================================*/
     private void setWeightClass(double weight) {
@@ -103,41 +103,44 @@ public class Package {
         if (weight_class == WeightClass.SMALL) {
             switch (shipping_method){
                 case ShippingMethod.AIR:
-                    cost = weight * SMALL_AIR_PACKAGE_COST;
+                    cost = SMALL_AIR_PACKAGE_COST;
                     break;
                 case ShippingMethod.TRUCK:
-                    cost = SMALL_TRUCK_PACKAGE_COST * weight;
+                    cost = SMALL_TRUCK_PACKAGE_COST;
                     break;
                 case ShippingMethod.MAIL:
-                    cost = SMALL_MAIL_PACKAGE_COST * weight;
+                    cost = SMALL_MAIL_PACKAGE_COST;
                     break;
-            }
-                    
+            }                    
         } else if (weight_class == WeightClass.MEDIUM) {
             switch (shipping_method){
                 case ShippingMethod.AIR:
-                    cost = MEDIU_AIR_PACKAGE_COST * weight;
+                    cost = MEDIU_AIR_PACKAGE_COST;
                     break;
                 case ShippingMethod.TRUCK:
-                    cost = MEDIU_TRUCK_PACKAGE_COST * weight;
+                    cost = MEDIU_TRUCK_PACKAGE_COST;
                     break;
                 case ShippingMethod.MAIL:
-                    cost = MEDIU_MAIL_PACKAGE_COST * weight;
+                    cost = MEDIU_MAIL_PACKAGE_COST;
                     break;
             }
         } else if (weight_class == WeightClass.LARGE) {
             switch (shipping_method){
                 case ShippingMethod.AIR:
-                    cost = LARGE_AIR_PACKAGE_COST * weight;
+                    cost = LARGE_AIR_PACKAGE_COST;
                     break;
                 case ShippingMethod.TRUCK:
-                    cost = LARGE_TRUCK_PACKAGE_COST * weight;
+                    cost = LARGE_TRUCK_PACKAGE_COST;
                     break;
                 case ShippingMethod.MAIL:
-                    cost = LARGE_MAIL_PACKAGE_COST * weight;
+                    cost = LARGE_MAIL_PACKAGE_COST;
                     break;
             }
         }
+    }
+    
+    public void display() {
+        ;
     }
     
     /* ============================== Tester  ================================*/
@@ -149,8 +152,6 @@ public class Package {
         System.out.println("Input Weight : " + testSmallPackage.getWeight() + "  | Should be SMALL class.  | Reports as : " + testSmallPackage.getWeightClass());
         System.out.println("Input Weight : " + testMediuPackage.getWeight() + " | Should be MEDIUM class. | Reports as : " + testMediuPackage.getWeightClass());
         System.out.println("Input Weight : " + testLargePackage.getWeight() + " | Should be LARGE class.  | Reports as : " + testLargePackage.getWeightClass());
-
-//        System.out.println(testLargePackage.getCost());
-    }
+   }
 
 }
