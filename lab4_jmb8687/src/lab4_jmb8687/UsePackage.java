@@ -4,13 +4,6 @@ import javax.swing.JOptionPane;
 
 public class UsePackage {
     
-    /*
-    public void setCustomerName(String customer_name) { this.customer_name = customer_name; }
-    public void setWeight(double weight) { this.weight = weight; setWeightClass(weight); }
-    public void setShippingMethod(ShippingMethod shipping_method) { this.shipping_method = shipping_method; }
-    public void setCost(double cost) { this.cost = cost; }
-    */
-    
     public static void getPackageInformation() {
         boolean running = true;
         while(running) {
