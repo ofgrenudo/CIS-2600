@@ -1,5 +1,7 @@
 package lab4_jmb8687;
 
+import javax.swing.JOptionPane;
+
 /**
  * ## `Package` Class
  * - `Customer Name`: String
@@ -55,6 +57,8 @@ public class Package {
     private final double LARGE_AIR_PACKAGE_COST = 2.00; 
     private final double LARGE_TRUCK_PACKAGE_COST = 1.50; 
     private final double LARGE_MAIL_PACKAGE_COST = 0.50; 
+
+    public boolean INSURED = false;
 
     /* ============================ Constructors =============================*/    
     public Package () { ; }
@@ -138,14 +142,18 @@ public class Package {
     
     public void display() {
         calculateCost();
-        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-        System.out.println("\t\tU-SHIP");
-        System.out.println("\nReciept for -> " + getCustomerName());
-        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
-        System.out.println("Package Weight -> " + getWeight() + " (oz)");
-        System.out.println("Shipping Method -> " + getShippingMethod());
-        System.out.println("Shipping Cost -> " + getCost());
-        System.out.println("\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        String message = "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n" +
+        "\t\tU-SHIP\n" +
+        "\nReciept for -> " + getCustomerName() + "\n" +
+        "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n" +
+        "Package Weight\t-> " + getWeight() + " (oz)\n" +
+        "Package Insured\t-> " + INSURED + "\n" +
+        "Shipping Method\t-> " + getShippingMethod() + "\n" +
+        "Shipping Cost\t-> " + getCost() + "\n" +
+        "\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%";
+
+        System.out.println(message);
+        JOptionPane.showMessageDialog(null, message);
     }
     
     /* ============================== Tester  ================================*/
