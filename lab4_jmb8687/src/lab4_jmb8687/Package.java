@@ -26,14 +26,17 @@ import javax.swing.JOptionPane;
  */
 public class Package {
     
+    // Create a enum of shipping methods
     public enum ShippingMethod {
         AIR, TRUCK, MAIL
     }
     
+    // Create a enum of weight classes    
     public enum WeightClass {
         SMALL, MEDIUM, LARGE
     }
     
+    // Variables of the class
     private String customer_name;
     private double weight;
     private WeightClass weight_class;
@@ -58,11 +61,12 @@ public class Package {
     private final double LARGE_TRUCK_PACKAGE_COST = 1.50; 
     private final double LARGE_MAIL_PACKAGE_COST = 0.50; 
 
-    public boolean INSURED = false;
+    public boolean INSURED = false; // default package has no insurance
 
     /* ============================ Constructors =============================*/    
-    public Package () { ; }
+    public Package () { ; } // do nothing
     
+    // Assign our package weight and shipping method
     public Package (double weight, ShippingMethod shipping_method) { 
         setWeight(weight);
         setShippingMethod(shipping_method);
@@ -101,38 +105,55 @@ public class Package {
     }
     
     public void calculateCost() {
+        // if package weight class is small
         if (weight_class == WeightClass.SMALL) {
+            // check shipping methods
             switch (shipping_method){
+                // apply air package cost
                 case ShippingMethod.AIR:
                     cost = SMALL_AIR_PACKAGE_COST;
                     break;
+                // apply truck package cost
                 case ShippingMethod.TRUCK:
                     cost = SMALL_TRUCK_PACKAGE_COST;
                     break;
+                // apply mail package cost
                 case ShippingMethod.MAIL:
                     cost = SMALL_MAIL_PACKAGE_COST;
                     break;
             }                    
-        } else if (weight_class == WeightClass.MEDIUM) {
+        } 
+        // if package weight class is medium
+        else if (weight_class == WeightClass.MEDIUM) {
+            // check shipping method
             switch (shipping_method){
+                // apply air package cost
                 case ShippingMethod.AIR:
                     cost = MEDIU_AIR_PACKAGE_COST;
                     break;
+                // apply truck package cost
                 case ShippingMethod.TRUCK:
                     cost = MEDIU_TRUCK_PACKAGE_COST;
                     break;
+                // apply mail package cost
                 case ShippingMethod.MAIL:
                     cost = MEDIU_MAIL_PACKAGE_COST;
                     break;
             }
-        } else if (weight_class == WeightClass.LARGE) {
+        } 
+        // if package weight class is large
+        else if (weight_class == WeightClass.LARGE) {
+            // check shipping method
             switch (shipping_method){
+                // apply air package cost.
                 case ShippingMethod.AIR:
                     cost = LARGE_AIR_PACKAGE_COST;
                     break;
+                // apply truck package cost.
                 case ShippingMethod.TRUCK:
                     cost = LARGE_TRUCK_PACKAGE_COST;
                     break;
+                // apply mail shipping cost.
                 case ShippingMethod.MAIL:
                     cost = LARGE_MAIL_PACKAGE_COST;
                     break;
@@ -140,8 +161,10 @@ public class Package {
         }
     }
     
+    // print out reciept
     public void display() {
-        calculateCost();
+        calculateCost(); // confirm cost is calculated before printing
+        // generate reciept
         String message = "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n" +
         "\t\tU-SHIP\n" +
         "\nReciept for -> " + getCustomerName() + "\n" +
@@ -152,11 +175,14 @@ public class Package {
         "Shipping Cost\t-> " + getCost() + "\n" +
         "\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%";
 
+        // print reciept to console just in case
         System.out.println(message);
+        // display reciept to joption pane as required.
         JOptionPane.showMessageDialog(null, message);
     }
     
     /* ============================== Tester  ================================*/
+    // for testing packages
     public void testWeightClass(){
         Package testSmallPackage = new Package(5.0, ShippingMethod.AIR);
         Package testMediuPackage = new Package(15.0, ShippingMethod.AIR);
